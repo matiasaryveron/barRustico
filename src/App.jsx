@@ -12,7 +12,7 @@ function App() {
     });
   }, []);
 
-  return <div className="bg-black"></div>;
+  return ;
 }
 
 export default App;

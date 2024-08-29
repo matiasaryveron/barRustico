@@ -20,7 +20,7 @@ const Main = () => {
   }, [images.length]);
 
   return (
-    <div className="h-screen relative overflow-hidden">
+    <div className="relative overflow-hidden h-[80vh]">
       {images.map((image, index) => (
         <img
           key={index}
@@ -29,10 +29,10 @@ const Main = () => {
           className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
         />
       ))}
-      <div className="absolute inset-0 flex items-center justify-center text-center bg-black bg-opacity-50 p-6 rounded-lg" style={{ zIndex: 10 }}>
-        <div className="relative bg-black bg-opacity-50 p-6 rounded-lg shadow-lg">
-          <h1 className="text-white text-5xl font-bold mb-4">RUSTICO</h1>
-          <p className="text-white text-xl mt-2">Av. Juan Bautista Alberdi 7063, CABA</p>
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 p-4 z-10">
+        <div className="bg-black bg-opacity-50 p-8 rounded-lg shadow-lg text-center">
+          <h1 className="text-white text-4xl font-bold mb-2">RUSTICO</h1>
+          <p className="text-white text-sm">Av. Juan Bautista Alberdi 7063, CABA</p>
         </div>
       </div>
     </div>

@@ -8,9 +8,8 @@ const Navbar = () => {
   const [nextSection, setNextSection] = useState(null);
   const [isClosing, setIsClosing] = useState(false);
 
-  // Inicializar AOS cuando el componente se monta
   useEffect(() => {
-    AOS.init({ duration: 500 }); // Configura la duración de la animación
+    AOS.init({ duration: 500 });
   }, []);
 
   const handleSectionClick = (section) => {
@@ -19,7 +18,7 @@ const Navbar = () => {
       setTimeout(() => {
         setActiveSection(null);
         setIsClosing(false);
-      }, 500); // Duración de la animación de cierre
+      }, 500);
     } else {
       if (activeSection) {
         setNextSection(section);
@@ -28,7 +27,7 @@ const Navbar = () => {
           setActiveSection(nextSection);
           setNextSection(null);
           setIsClosing(false);
-        }, 500); // Duración de la animación de cierre
+        }, 500);
       } else {
         setActiveSection(section);
       }
@@ -36,12 +35,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full p-4 z-20 bg-transparent">
-      <ul className="flex space-x-4">
+    <nav className="bottom-0 left-0 w-full p-4 bg-black relative z-50">
+      <ul className="flex space-x-12 justify-center">
         <li>
           <button 
             onClick={() => handleSectionClick('servicios')} 
-            className="text-white text-lg transition-transform duration-300 transform hover:scale-110"
+            className="text-white text-xl transition-transform duration-300 transform hover:scale-110"
           >
             Servicios
           </button>
@@ -49,7 +48,7 @@ const Navbar = () => {
         <li>
           <button 
             onClick={() => handleSectionClick('ubicacion')} 
-            className="text-white text-lg transition-transform duration-300 transform hover:scale-110"
+            className="text-white text-xl transition-transform duration-300 transform hover:scale-110"
           >
             Ubicación
           </button>
@@ -57,7 +56,7 @@ const Navbar = () => {
         <li>
           <button 
             onClick={() => handleSectionClick('contacto')} 
-            className="text-white text-lg transition-transform duration-300 transform hover:scale-110"
+            className="text-white text-xl transition-transform duration-300 transform hover:scale-110"
           >
             Contacto
           </button>
@@ -66,18 +65,18 @@ const Navbar = () => {
 
       {(activeSection || nextSection) && (
         <div
-          className={`absolute top-16 left-0 w-full flex justify-center transition-opacity duration-500 ${isClosing ? 'opacity-0' : 'opacity-100'}`}
+          className={`absolute bottom-16 left-1/2 transform -translate-x-1/2 w-full flex justify-center transition-opacity duration-500 ${isClosing ? 'opacity-0' : 'opacity-100'}`}
         >
           <div
-            className="bg-black text-white p-4 rounded-lg w-11/12 md:w-1/2 lg:w-1/3 z-30"
+            className="bg-black text-white p-4 rounded-lg w-11/12 md:w-1/2 lg:w-1/3 relative"
             data-aos="fade-up"
             data-aos-duration="1000"
           >
-            <button className="float-right text-white" onClick={() => handleSectionClick(activeSection)}>X</button>
-            <h2 className="text-2xl font-bold capitalize text-center mb-4">{activeSection || nextSection}</h2>
+            <button className="absolute top-2 right-2 text-white" onClick={() => handleSectionClick(activeSection)}>X</button>
+            <h2 className="text-2xl font-bold capitalize text-center mb-4 mt-8">{activeSection || nextSection}</h2>
             {activeSection === 'servicios' && (
               <p className="text-center">
-                En <strong>Rustico</strong>, ofrecemos un amplio espacio con mesas de pool, incluyendo opciones profesionales. Disfruta de nuestras deliciosas hamburguesas, pizzas, y picadas, acompañadas de una variedad de tragos y cócteles. ¡Ven y vive una experiencia única en Mataderos, con horarios extendidos hasta la madrugada!
+                En <strong>Rustico</strong>, ofrecemos un amplio espacio con mesas de pool. Disfruta de nuestras deliciosas hamburguesas, pizzas, y picadas, acompañadas de una variedad de tragos y cócteles. ¡Ven y vive una experiencia única en Mataderos! Todos los días de 19:00 hs a 04:00 hs.
               </p>
             )}
             {activeSection === 'ubicacion' && (
@@ -90,7 +89,8 @@ const Navbar = () => {
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+                >
+                </iframe>
               </div>
             )}
             {activeSection === 'contacto' && (
