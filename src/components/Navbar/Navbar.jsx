@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { FaPhoneAlt, FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -96,10 +96,6 @@ const Navbar = () => {
             {activeSection === 'contacto' && (
               <div className="mt-4 text-center">
                 <p className="text-lg font-bold mb-2">Contáctanos:</p>
-                <div className="flex justify-center items-center mb-2">
-                  <FaPhoneAlt className="text-blue-600 mr-2" />
-                  <span>(011) 1234-5678</span>
-                </div>
                 <div className="flex justify-center items-center mb-2">
                   <FaWhatsapp className="text-green-600 mr-2" />
                   <span>+54 9 11 1234-5678</span>
